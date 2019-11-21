@@ -4,35 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using CardFiles.Models;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using CardFiles.Models;
+using CardFiles.Views;
 
-namespace CardFiles
+namespace CardFiles.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Patientreadktorindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PatientRedaktorControl : UserControl
     {
-        public MainWindow()
+        public PatientRedaktorControl()
         {
             InitializeComponent();
-            DataContext = new MainWindowModel();
-        }
-
-      
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
+         ///   DataContext = PatientsViewModel.newPatientModel;
         }
     }
 }

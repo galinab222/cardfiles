@@ -10,29 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CardFiles.Models;
 
-namespace CardFiles
+namespace CardFiles.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PatientsControl : UserControl
     {
-        public MainWindow()
+        public PatientsControl()
         {
             InitializeComponent();
-            DataContext = new MainWindowModel();
+            DataContext = new PatientsViewModel();
         }
 
-      
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
-        }
+    
     }
 }

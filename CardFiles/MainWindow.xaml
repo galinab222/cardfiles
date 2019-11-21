@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardFiles"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Картотека пациентов" Height="450" Width="800">
+    <Grid Height="443" VerticalAlignment="Bottom" Margin="0,-24,0,0">
+
+        <Button Content="Пациенты" HorizontalAlignment="Center" Margin="80.574,61,292,0" VerticalAlignment="Top" Width="208" Height="74" Grid.Column="1" Command="{Binding PatientsCommand}" >
+        </Button>
+        <Button Content="Посещения" HorizontalAlignment="Center" Margin="80.574,222,292,0" VerticalAlignment="Top" Width="208" Height="74" Grid.Column="1" Command="{Binding VisitsCommand}" />
+        <Button Content="Выход" HorizontalAlignment="Right" Margin="0,322,20,0" VerticalAlignment="Top" Width="100" Height="34" Grid.Column="1" Click="Button_Click_1"   />
+        <Button Content="Отчет" HorizontalAlignment="Center" Margin="496,150,88,0" VerticalAlignment="Top" Width="208" Height="74" Command="{Binding ReportCommand}" />
     </Grid>
 </Window>

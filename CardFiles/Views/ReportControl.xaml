@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="CardFiles.Views.ReportControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:CardFiles.Models"
+        xmlns:local="clr-namespace:CardFiles.Classes"
+        mc:Ignorable="d"
+      
+       Height="500" Width="1200" FontSize="24">
+  
+    <UserControl.Resources>
+        <local:DateTimeToDateConverter x:Key="dateConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+            <!--<RowDefinition Height="60"/>-->
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1"/>
+        <Label Grid.Row="0" Content="Список пациентов" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <DataGrid HorizontalAlignment="Stretch"   Grid.Row="1" VerticalAlignment="Stretch"   ItemsSource="{Binding  ReportResult ,Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" SelectedItem="{Binding Path=SelectedPatient}"
+                 
+  RowHeight="25"  FontSize="20" AutoGenerateColumns="True"    >
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="ID" Width="35" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Фамилия" Width="*" />
+                <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=FatherName}" Header="Отчество" Width="*"  />
+                <DataGridTextColumn Binding="{Binding Path=DateOfBirth, Converter={StaticResource dateConverter}}" Header="Дата рождения"  Width="200" />
+            </DataGrid.Columns>-->
+        </DataGrid> 
+    
+    </Grid>
+</UserControl>

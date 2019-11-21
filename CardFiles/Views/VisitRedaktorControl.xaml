@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="CardFiles.Views.VisitRedaktorControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+      xmlns:local="clr-namespace:CardFiles.Classes"
+     DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    Height="650" Width="800">
+    <Control.Resources>
+        <local:DateTimeToDateConverter x:Key="dateConverter" />
+        <local:StringToPhoneConverter x:Key="phoneConverter" />
+    </Control.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+     
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Сведения о посещении" FontSize="25"/>
+        <Label Grid.Row="1" Content="Код" FontSize="15"  VerticalAlignment="Center" />
+        <TextBox Grid.Row="1" FontSize="15" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="590" Margin="0,20,10,20" Text="{Binding Id, Mode=OneWay}" />
+
+        <Label Grid.Row="2" Content="Имя пациента" FontSize="15"  VerticalAlignment="Center" />
+        <ComboBox   Grid.Row="2" FontSize="15"  Height="30" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="650" Margin="0,18,10,19"
+         ItemsSource="{Binding Path=PatientsView}"   DisplayMemberPath="Name"  SelectedValuePath="Code"  SelectedValue="{Binding PatientId}"/>
+      
+        <Label Grid.Row="3" Content="Тип посещения" FontSize="15"  VerticalAlignment="Center" />
+        <ComboBox   Grid.Row="3" FontSize="15"  Height="30" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="188" Margin="0,18,412,19"
+         ItemsSource="{Binding TypeOfVisitView}"      DisplayMemberPath="Name"  SelectedValuePath="Code"
+              SelectedValue="{Binding KindOfVisit}"
+                 >
+        </ComboBox>
+
+
+        <Label Grid.Row="4" Content="Дата посещения" FontSize="15"  VerticalAlignment="Center" />
+        <TextBox Grid.Row="4" FontSize="15"  Height="30" VerticalAlignment="Center" HorizontalAlignment="Right"   Width="188" Margin="0,18,412,19" Text="{Binding Path=DateOfVisit, Converter={StaticResource dateConverter}}" />
+
+        <Label Grid.Row="5" Content="Диагноз" FontSize="15"  VerticalAlignment="Center" />
+        <TextBox Grid.Row="5" FontSize="15"   Height="30" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="590" Margin="0,20,10,20" Text="{Binding Diagnosis}" />
+       
+    </Grid>
+
+</UserControl>
